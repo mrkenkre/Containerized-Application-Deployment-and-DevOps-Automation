@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    image: mysql
+    container_name: mysqldb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_USERNAME: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nodemysql
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - mysql-network
+
+  mysql-workbench:
+    image: linuxserver/mysql-workbench
+    container_name: mysql-workbench
+    ports:
+      - "8081:3000"
+    networks:
+      - mysql-network
+
+  myapp:
+    image: 781104868468.dkr.ecr.us-east-1.amazonaws.com/myapp:1.2
+    ports:
+      - 3000:3000
+    networks:
+      - mysql-network
+    depends_on:
+      - mysqldb
+
+networks:
+  mysql-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
