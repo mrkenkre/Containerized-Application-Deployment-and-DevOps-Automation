@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     def imageTag = "${IMAGE_NAME}:${env.BUILD_NUMBER}"
-                    sh "docker build -t ${imageTag} ."
+                    bat "docker build -t ${imageTag} ."
                     env.DOCKER_IMAGE_TAG = imageTag
                 }
             }
@@ -17,15 +17,15 @@ pipeline {
         stage('Login to Amazon ECR') {
             steps {
                 script {
-                    sh "\$(aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_REGISTRY)"
+                    bat "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_REGISTRY"
                 }
             }
         }
         stage('Push Image to Amazon ECR') {
             steps {
                 script {
-                    sh "docker tag ${env.DOCKER_IMAGE_TAG} $ECR_REGISTRY/${env.DOCKER_IMAGE_TAG}"
-                    sh "docker push $ECR_REGISTRY/${env.DOCKER_IMAGE_TAG}"
+                    bat "docker tag ${env.DOCKER_IMAGE_TAG} $ECR_REGISTRY/${env.DOCKER_IMAGE_TAG}"
+                    bat "docker push $ECR_REGISTRY/${env.DOCKER_IMAGE_TAG}"
                 }
             }
         }
