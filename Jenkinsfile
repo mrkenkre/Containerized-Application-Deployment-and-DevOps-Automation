@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         ECR_REGISTRY = '781104868468.dkr.ecr.us-east-1.amazonaws.com'
-        IMAGE_NAME = 'my-app'
+        IMAGE_NAME = 'myapp'
     }
     stages {
         stage('Build Docker Image') {
