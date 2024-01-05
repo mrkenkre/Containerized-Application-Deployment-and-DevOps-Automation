@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
 
 app.use("/", healthz);
-
 app.use("/v3", assg);
 
 app.listen("3000", () => {
