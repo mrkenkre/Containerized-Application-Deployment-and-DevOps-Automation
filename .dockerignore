@@ -2,3 +2,5 @@ node_modules/
 docker-compose.yml
 Dockerfile
 init-db.sql
+DockerFiles/
+KubernetesFiles/
