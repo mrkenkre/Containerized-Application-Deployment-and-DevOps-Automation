@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     def imageTag = "${IMAGE_NAME}:${env.BUILD_NUMBER}"
-                    bat "docker build -t ${imageTag} ."
+                    bat "cd DockerFiles && docker build -t ${imageTag} ."
                     env.DOCKER_IMAGE_TAG = imageTag
                 }
             }
