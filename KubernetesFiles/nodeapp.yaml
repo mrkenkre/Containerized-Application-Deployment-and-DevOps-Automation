@@ -13,6 +13,8 @@ spec:
       labels:
         app: nodeapp
     spec:
+      imagePullSecrets:
+        - name: ecr-registry
       containers:
         - name: nodeapp
           image: 781104868468.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
