@@ -4,7 +4,7 @@ pipeline {
         ECR_REGISTRY = '781104868468.dkr.ecr.us-east-1.amazonaws.com'
         IMAGE_NAME = 'myapp'
         HELM_RELEASE_NAME = 'myapp-release'
-        CHART_PATH = 'DockerProject/nodeapp-helm' 
+        CHART_PATH = '/nodeapp-helm/' 
         KUBECONFIG = 'C:/Users/Artemis. (MK)/.kube/config'
     }
     stages {
