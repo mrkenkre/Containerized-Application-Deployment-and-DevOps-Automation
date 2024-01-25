@@ -38,12 +38,6 @@ nodeapp:
     image: 781104868468.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
     replicas: 1
     containerPort: 3000
-    environment:
-      dbName: nodemysql
-      dbUser: mayur
-      dbPassword: root
-      dbHost: mysql-service
-      dbDialect: mariadb
   service:
     name: nodeapp-service
     port: 3000
