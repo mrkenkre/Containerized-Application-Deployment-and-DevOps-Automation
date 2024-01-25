@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy to Kubernetes using Helm') {
             steps {
                 script {
-                    sh "helm upgrade --install $HELM_RELEASE_NAME $CHART_PATH --set image.tag=${env.BUILD_NUMBER} --namespace my-namespace"
+                    bat "helm upgrade --install $HELM_RELEASE_NAME $CHART_PATH --set image.tag=${env.BUILD_NUMBER} --namespace my-namespace"
                 }
             }
         }
