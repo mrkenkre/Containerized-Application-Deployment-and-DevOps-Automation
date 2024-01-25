@@ -60,6 +60,7 @@ async function authenticate(req, res) {
     } catch (error) {
       standardErrorLogger.error("Authentication error:", error);
       console.error("Authentication error:", error);
+      res.status(401).send("Authentication error:", error);
       return false;
     }
   }

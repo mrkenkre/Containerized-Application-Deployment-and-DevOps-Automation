@@ -7,4 +7,4 @@ data:
   MYSQL_PORT: "3306"
   MYSQL_DATABASE: "nodemysql"
   MYSQL_DIALECT: "mariadb"
-  MYSQL_HOST: "mysqldb"
+  MYSQL_HOST: "mysql-service"

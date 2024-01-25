@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
-  namespace: my-namespace
+  name: {{ .Values.nodeapp.deployment.name }}
+  namespace: {{ .Release.Namespace }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.nodeapp.deployment.replicas }}
   selector:
     matchLabels:
       app: nodeapp
@@ -14,12 +14,12 @@ spec:
         app: nodeapp
     spec:
       imagePullSecrets:
-        - name: ecr-registry
+        - name: {{ .Values.nodeapp.imagePullSecret }}
       containers:
         - name: nodeapp
-          image: 781104868468.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
+          image: {{ .Values.nodeapp.deployment.image }}
           ports:
-            - containerPort: 3000
+            - containerPort: {{ .Values.nodeapp.deployment.containerPort }}
           env:
             - name: DB_NAME
               valueFrom:
@@ -46,16 +46,3 @@ spec:
                 configMapKeyRef:
                   name: mysql-config
                   key: MYSQL_DIALECT
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nodeapp-service
-  namespace: my-namespace
-spec:
-  selector:
-    app: nodeapp
-  ports:
-    - protocol: TCP
-      port: 3000
-      targetPort: 3000

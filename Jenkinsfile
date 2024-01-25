@@ -3,6 +3,8 @@ pipeline {
     environment {
         ECR_REGISTRY = '781104868468.dkr.ecr.us-east-1.amazonaws.com'
         IMAGE_NAME = 'myapp'
+        HELM_RELEASE_NAME = 'myapp-release'
+        CHART_PATH = 'DockerProject/nodeapp-helm' 
     }
     stages {
         stage('Build Docker Image') {
@@ -33,6 +35,13 @@ pipeline {
                     bat "docker push $ECR_REGISTRY/${env.DOCKER_IMAGE_TAG}"
 
                     bat "docker push $ECR_REGISTRY/${IMAGE_NAME}:latest"
+                }
+            }
+        }
+        stage('Deploy to Kubernetes using Helm') {
+            steps {
+                script {
+                    sh "helm upgrade --install $HELM_RELEASE_NAME $CHART_PATH --set image.tag=${env.BUILD_NUMBER} --namespace my-namespace"
                 }
             }
         }

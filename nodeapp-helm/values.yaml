@@ -1,0 +1,58 @@
+mysql:
+  persistentVolumeClaim:
+    name: mysql-pv-claim
+    accessModes:
+      - ReadWriteOnce
+    storage: 1Gi
+  deployment:
+    name: mysql-deployment
+    image: mysql
+    replicas: 1
+    containerPort: 3306
+  service:
+    name: mysql-service
+    port: 3306
+    targetPort: 3306
+
+mysqlWorkbench:
+  deployment:
+    name: mysql-workbench
+    image: linuxserver/mysql-workbench
+    replicas: 1
+    containerPort: 3000
+    environment:
+      MYSQL_HOST: mysql-service
+      MYSQL_PORT: 3306
+  service:
+    name: mysqlworkbench-service
+    type: LoadBalancer
+    port: 3000
+    targetPort: 3000
+    nodePort: 30000
+
+
+nodeapp:
+  imagePullSecret: ecr-registry
+  deployment:
+    name: nodeapp-deployment
+    image: 781104868468.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
+    replicas: 1
+    containerPort: 3000
+    environment:
+      dbName: nodemysql
+      dbUser: mayur
+      dbPassword: root
+      dbHost: mysql-service
+      dbDialect: mariadb
+  service:
+    name: nodeapp-service
+    port: 3000
+    targetPort: 3000
+
+ingress:
+  enabled: true
+  hosts:
+    - host: "dashboard.com"
+      paths:
+        - path: "/"
+          pathType: Prefix

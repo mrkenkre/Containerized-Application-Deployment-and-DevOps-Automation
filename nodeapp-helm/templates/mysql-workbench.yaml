@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.mysqlWorkbench.deployment.name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.mysqlWorkbench.deployment.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.mysqlWorkbench.deployment.name }}
+    spec:
+      containers:
+        - name: mysql-workbench
+          image: {{ .Values.mysqlWorkbench.deployment.image }}
+          ports:
+            - containerPort: {{ .Values.mysqlWorkbench.service.targetPort }}
+          env:
+            - name: MYSQL_HOST
+              value: {{ .Values.mysqlWorkbench.deployment.environment.MYSQL_HOST }}
+            - name: MYSQL_PORT
+              value: "{{ .Values.mysqlWorkbench.deployment.environment.MYSQL_PORT }}"
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_PASSWORD
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: MYSQL_DATABASE
