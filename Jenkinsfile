@@ -5,6 +5,7 @@ pipeline {
         IMAGE_NAME = 'myapp'
         HELM_RELEASE_NAME = 'myapp-release'
         CHART_PATH = 'DockerProject/nodeapp-helm' 
+        KUBECONFIG = 'C:/Users/Artemis. (MK)/.kube/config'
     }
     stages {
         stage('Build Docker Image') {
