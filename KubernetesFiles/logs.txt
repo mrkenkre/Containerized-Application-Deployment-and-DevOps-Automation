@@ -1,0 +1,129 @@
+* 
+* ==> Audit <==
+* |---------|-------------------------|----------|-------------------------|---------|---------------------|---------------------|
+| Command |          Args           | Profile  |          User           | Version |     Start Time      |      End Time       |
+|---------|-------------------------|----------|-------------------------|---------|---------------------|---------------------|
+| start   |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 11 Jan 24 12:50 EST |                     |
+| start   |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 11 Jan 24 12:55 EST |                     |
+| start   |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 11 Jan 24 13:07 EST |                     |
+| start   |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 11 Jan 24 16:53 EST |                     |
+| start   |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 11 Jan 24 16:53 EST | 11 Jan 24 16:55 EST |
+| service | mysql-workbench-service | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 12 Jan 24 03:07 EST | 12 Jan 24 03:07 EST |
+| service | mysql-workbench-service | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 12 Jan 24 03:19 EST | 12 Jan 24 03:19 EST |
+| addons  | enable ingress          | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 15 Jan 24 12:37 EST |                     |
+| addons  | enable ingress          | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 15 Jan 24 12:37 EST | 15 Jan 24 12:38 EST |
+| start   |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 23 Jan 24 18:24 EST |                     |
+| start   |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 23 Jan 24 18:30 EST |                     |
+| stop    |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 23 Jan 24 18:35 EST | 23 Jan 24 18:35 EST |
+| start   |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 23 Jan 24 18:35 EST | 23 Jan 24 18:36 EST |
+| start   |                         | minikube | APPLEDORE\Artemis. (MK) | v1.32.0 | 30 Jan 24 16:48 EST |                     |
+|---------|-------------------------|----------|-------------------------|---------|---------------------|---------------------|
+
+* 
+* ==> Last Start <==
+* Log file created at: 2024/01/30 16:48:21
+Running on machine: Appledore
+Binary: Built with gc go1.21.3 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0130 16:48:21.036291    7016 out.go:296] Setting OutFile to fd 84 ...
+I0130 16:48:21.037282    7016 out.go:348] isatty.IsTerminal(84) = true
+I0130 16:48:21.037282    7016 out.go:309] Setting ErrFile to fd 88...
+I0130 16:48:21.037282    7016 out.go:348] isatty.IsTerminal(88) = true
+W0130 16:48:21.048707    7016 root.go:314] Error reading config file at C:\Users\Artemis. (MK)\.minikube\config\config.json: open C:\Users\Artemis. (MK)\.minikube\config\config.json: The system cannot find the file specified.
+I0130 16:48:21.059789    7016 out.go:303] Setting JSON to false
+I0130 16:48:21.066569    7016 start.go:128] hostinfo: {"hostname":"Appledore","uptime":4155,"bootTime":1706647145,"procs":350,"os":"windows","platform":"Microsoft Windows 10 Home Single Language","platformFamily":"Standalone Workstation","platformVersion":"10.0.19045.3996 Build 19045.3996","kernelVersion":"10.0.19045.3996 Build 19045.3996","kernelArch":"x86_64","virtualizationSystem":"","virtualizationRole":"","hostId":"b1f9d6e8-0d4d-4c05-aa3f-66f106d10509"}
+W0130 16:48:21.066569    7016 start.go:136] gopshost.Virtualization returned error: not implemented yet
+I0130 16:48:21.067657    7016 out.go:177] 😄  minikube v1.32.0 on Microsoft Windows 10 Home Single Language 10.0.19045.3996 Build 19045.3996
+I0130 16:48:21.068864    7016 notify.go:220] Checking for updates...
+I0130 16:48:21.075782    7016 config.go:182] Loaded profile config "minikube": Driver=hyperv, ContainerRuntime=docker, KubernetesVersion=v1.28.3
+I0130 16:48:21.076291    7016 driver.go:378] Setting default libvirt URI to qemu:///system
+I0130 16:48:23.379479    7016 out.go:177] ✨  Using the hyperv driver based on existing profile
+I0130 16:48:23.380006    7016 start.go:298] selected driver: hyperv
+I0130 16:48:23.380006    7016 start.go:902] validating driver "hyperv" against &{Name:minikube KeepContext:false EmbedCerts:false MinikubeISO:https://storage.googleapis.com/minikube/iso/minikube-v1.32.1-amd64.iso KicBaseImage:gcr.io/k8s-minikube/kicbase:v0.0.42@sha256:d35ac07dfda971cabee05e0deca8aeac772f885a5348e1a0c0b0a36db20fcfc0 Memory:4000 CPUs:2 DiskSize:20000 VMDriver: Driver:hyperv HyperkitVpnKitSock: HyperkitVSockPorts:[] DockerEnv:[] ContainerVolumeMounts:[] InsecureRegistry:[] RegistryMirror:[] HostOnlyCIDR:192.168.59.1/24 HypervVirtualSwitch: HypervUseExternalSwitch:false HypervExternalAdapter: KVMNetwork:default KVMQemuURI:qemu:///system KVMGPU:false KVMHidden:false KVMNUMACount:1 APIServerPort:0 DockerOpt:[] DisableDriverMounts:false NFSShare:[] NFSSharesRoot:/nfsshares UUID: NoVTXCheck:false DNSProxy:false HostDNSResolver:true HostOnlyNicType:virtio NatNicType:virtio SSHIPAddress: SSHUser:root SSHKey: SSHPort:22 KubernetesConfig:{KubernetesVersion:v1.28.3 ClusterName:minikube Namespace:default APIServerName:minikubeCA APIServerNames:[] APIServerIPs:[] DNSDomain:cluster.local ContainerRuntime:docker CRISocket: NetworkPlugin:cni FeatureGates: ServiceCIDR:10.96.0.0/12 ImageRepository: LoadBalancerStartIP: LoadBalancerEndIP: CustomIngressCert: RegistryAliases: ExtraOptions:[] ShouldLoadCachedImages:true EnableDefaultCNI:false CNI: NodeIP: NodePort:8443 NodeName:} Nodes:[{Name: IP:172.26.46.200 Port:8443 KubernetesVersion:v1.28.3 ContainerRuntime:docker ControlPlane:true Worker:true}] Addons:map[default-storageclass:true ingress:true storage-provisioner:true] CustomAddonImages:map[] CustomAddonRegistries:map[] VerifyComponents:map[apiserver:true system_pods:true] StartHostTimeout:6m0s ScheduledStop:<nil> ExposedPorts:[] ListenAddress: Network: Subnet: MultiNodeRequested:false ExtraDisks:0 CertExpiration:26280h0m0s Mount:false MountString:C:\Users\Artemis. (MK):/minikube-host Mount9PVersion:9p2000.L MountGID:docker MountIP: MountMSize:262144 MountOptions:[] MountPort:0 MountType:9p MountUID:docker BinaryMirror: DisableOptimizations:false DisableMetrics:false CustomQemuFirmwarePath: SocketVMnetClientPath: SocketVMnetPath: StaticIP: SSHAuthSock: SSHAgentPID:0 AutoPauseInterval:1m0s GPUs:}
+I0130 16:48:23.380006    7016 start.go:913] status for hyperv: {Installed:true Healthy:true Running:false NeedsImprovement:false Error:<nil> Reason: Fix: Doc: Version:}
+I0130 16:48:23.398741    7016 cni.go:84] Creating CNI manager for ""
+I0130 16:48:23.398741    7016 cni.go:158] "hyperv" driver + "docker" container runtime found on kubernetes v1.24+, recommending bridge
+I0130 16:48:23.398741    7016 start_flags.go:323] config:
+{Name:minikube KeepContext:false EmbedCerts:false MinikubeISO:https://storage.googleapis.com/minikube/iso/minikube-v1.32.1-amd64.iso KicBaseImage:gcr.io/k8s-minikube/kicbase:v0.0.42@sha256:d35ac07dfda971cabee05e0deca8aeac772f885a5348e1a0c0b0a36db20fcfc0 Memory:4000 CPUs:2 DiskSize:20000 VMDriver: Driver:hyperv HyperkitVpnKitSock: HyperkitVSockPorts:[] DockerEnv:[] ContainerVolumeMounts:[] InsecureRegistry:[] RegistryMirror:[] HostOnlyCIDR:192.168.59.1/24 HypervVirtualSwitch: HypervUseExternalSwitch:false HypervExternalAdapter: KVMNetwork:default KVMQemuURI:qemu:///system KVMGPU:false KVMHidden:false KVMNUMACount:1 APIServerPort:0 DockerOpt:[] DisableDriverMounts:false NFSShare:[] NFSSharesRoot:/nfsshares UUID: NoVTXCheck:false DNSProxy:false HostDNSResolver:true HostOnlyNicType:virtio NatNicType:virtio SSHIPAddress: SSHUser:root SSHKey: SSHPort:22 KubernetesConfig:{KubernetesVersion:v1.28.3 ClusterName:minikube Namespace:default APIServerName:minikubeCA APIServerNames:[] APIServerIPs:[] DNSDomain:cluster.local ContainerRuntime:docker CRISocket: NetworkPlugin:cni FeatureGates: ServiceCIDR:10.96.0.0/12 ImageRepository: LoadBalancerStartIP: LoadBalancerEndIP: CustomIngressCert: RegistryAliases: ExtraOptions:[] ShouldLoadCachedImages:true EnableDefaultCNI:false CNI: NodeIP: NodePort:8443 NodeName:} Nodes:[{Name: IP:172.26.46.200 Port:8443 KubernetesVersion:v1.28.3 ContainerRuntime:docker ControlPlane:true Worker:true}] Addons:map[default-storageclass:true ingress:true storage-provisioner:true] CustomAddonImages:map[] CustomAddonRegistries:map[] VerifyComponents:map[apiserver:true system_pods:true] StartHostTimeout:6m0s ScheduledStop:<nil> ExposedPorts:[] ListenAddress: Network: Subnet: MultiNodeRequested:false ExtraDisks:0 CertExpiration:26280h0m0s Mount:false MountString:C:\Users\Artemis. (MK):/minikube-host Mount9PVersion:9p2000.L MountGID:docker MountIP: MountMSize:262144 MountOptions:[] MountPort:0 MountType:9p MountUID:docker BinaryMirror: DisableOptimizations:false DisableMetrics:false CustomQemuFirmwarePath: SocketVMnetClientPath: SocketVMnetPath: StaticIP: SSHAuthSock: SSHAgentPID:0 AutoPauseInterval:1m0s GPUs:}
+I0130 16:48:23.399292    7016 iso.go:125] acquiring lock: {Name:mkf005e53a811fac868d033ed14d05eeb5694d32 Clock:{} Delay:500ms Timeout:10m0s Cancel:<nil>}
+I0130 16:48:23.400358    7016 out.go:177] 👍  Starting control plane node minikube in cluster minikube
+I0130 16:48:23.400879    7016 preload.go:132] Checking if preload exists for k8s version v1.28.3 and runtime docker
+I0130 16:48:23.401414    7016 preload.go:148] Found local preload: C:\Users\Artemis. (MK)\.minikube\cache\preloaded-tarball\preloaded-images-k8s-v18-v1.28.3-docker-overlay2-amd64.tar.lz4
+I0130 16:48:23.401414    7016 cache.go:56] Caching tarball of preloaded images
+I0130 16:48:23.401414    7016 preload.go:174] Found C:\Users\Artemis. (MK)\.minikube\cache\preloaded-tarball\preloaded-images-k8s-v18-v1.28.3-docker-overlay2-amd64.tar.lz4 in cache, skipping download
+I0130 16:48:23.401414    7016 cache.go:59] Finished verifying existence of preloaded tar for  v1.28.3 on docker
+I0130 16:48:23.401934    7016 profile.go:148] Saving config to C:\Users\Artemis. (MK)\.minikube\profiles\minikube\config.json ...
+I0130 16:48:23.402983    7016 start.go:365] acquiring machines lock for minikube: {Name:mk9ac626c0f535e1ef51f770b61ef26c9c15b907 Clock:{} Delay:500ms Timeout:13m0s Cancel:<nil>}
+I0130 16:48:23.403508    7016 start.go:369] acquired machines lock for "minikube" in 0s
+I0130 16:48:23.403508    7016 start.go:96] Skipping create...Using existing machine configuration
+I0130 16:48:23.403508    7016 fix.go:54] fixHost starting: 
+I0130 16:48:23.404024    7016 main.go:141] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive ( Hyper-V\Get-VM minikube ).state
+I0130 16:48:24.664976    7016 main.go:141] libmachine: [stdout =====>] : Off
+
+I0130 16:48:24.664976    7016 main.go:141] libmachine: [stderr =====>] : 
+I0130 16:48:24.665139    7016 fix.go:102] recreateIfNeeded on minikube: state=Stopped err=<nil>
+W0130 16:48:24.665139    7016 fix.go:128] unexpected machine state, will restart: <nil>
+I0130 16:48:24.665843    7016 out.go:177] 🔄  Restarting existing hyperv VM for "minikube" ...
+I0130 16:48:24.666520    7016 main.go:141] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Start-VM minikube
+I0130 16:48:28.768763    7016 main.go:141] libmachine: [stdout =====>] : 
+E0130 16:48:28.768763    7016 main.go:137] libmachine: [stderr =====>] : Hyper-V\Start-VM : 'minikube' failed to start.
+Not enough memory in the system to start the virtual machine minikube.
+Could not initialize memory: Not enough memory resources are available to complete this operation. (0x8007000E).
+'minikube' failed to start. (Virtual machine ID BA4A7BA4-120B-4152-B10C-C6C63174ADB7)
+Not enough memory in the system to start the virtual machine minikube with ram size 4000 megabytes. (Virtual machine ID BA4A7BA4-120B-4152-B10C-C6C63174ADB7)
+'minikube' could not initialize memory: Not enough memory resources are available to complete this operation. (0x8007000E). (Virtual machine ID BA4A7BA4-120B-4152-B10C-C6C63174ADB7)
+At line:1 char:1
++ Hyper-V\Start-VM minikube
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : FromStdErr: (:) [Start-VM], VirtualizationException
+    + FullyQualifiedErrorId : OutOfMemory,Microsoft.HyperV.PowerShell.Commands.StartVM
+ 
+
+I0130 16:48:28.770369    7016 fix.go:56] fixHost completed within 5.3663282s
+I0130 16:48:28.770369    7016 start.go:83] releasing machines lock for "minikube", held for 5.3668609s
+W0130 16:48:28.770916    7016 start.go:691] error starting host: driver start: exit status 1
+W0130 16:48:28.771465    7016 out.go:239] 🤦  StartHost failed, but will try again: driver start: exit status 1
+I0130 16:48:28.771465    7016 start.go:706] Will try again in 5 seconds ...
+I0130 16:48:33.780566    7016 start.go:365] acquiring machines lock for minikube: {Name:mk9ac626c0f535e1ef51f770b61ef26c9c15b907 Clock:{} Delay:500ms Timeout:13m0s Cancel:<nil>}
+I0130 16:48:33.780731    7016 start.go:369] acquired machines lock for "minikube" in 164.4µs
+I0130 16:48:33.780731    7016 start.go:96] Skipping create...Using existing machine configuration
+I0130 16:48:33.780731    7016 fix.go:54] fixHost starting: 
+I0130 16:48:33.781396    7016 main.go:141] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive ( Hyper-V\Get-VM minikube ).state
+I0130 16:48:34.805013    7016 main.go:141] libmachine: [stdout =====>] : Off
+
+I0130 16:48:34.805013    7016 main.go:141] libmachine: [stderr =====>] : 
+I0130 16:48:34.805172    7016 fix.go:102] recreateIfNeeded on minikube: state=Stopped err=<nil>
+W0130 16:48:34.805172    7016 fix.go:128] unexpected machine state, will restart: <nil>
+I0130 16:48:34.805784    7016 out.go:177] 🔄  Restarting existing hyperv VM for "minikube" ...
+I0130 16:48:34.806352    7016 main.go:141] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Start-VM minikube
+I0130 16:48:37.929954    7016 main.go:141] libmachine: [stdout =====>] : 
+E0130 16:48:37.929954    7016 main.go:137] libmachine: [stderr =====>] : Hyper-V\Start-VM : 'minikube' failed to start.
+Not enough memory in the system to start the virtual machine minikube.
+Could not initialize memory: Not enough memory resources are available to complete this operation. (0x8007000E).
+'minikube' failed to start. (Virtual machine ID BA4A7BA4-120B-4152-B10C-C6C63174ADB7)
+Not enough memory in the system to start the virtual machine minikube with ram size 4000 megabytes. (Virtual machine ID BA4A7BA4-120B-4152-B10C-C6C63174ADB7)
+'minikube' could not initialize memory: Not enough memory resources are available to complete this operation. (0x8007000E). (Virtual machine ID BA4A7BA4-120B-4152-B10C-C6C63174ADB7)
+At line:1 char:1
++ Hyper-V\Start-VM minikube
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : FromStdErr: (:) [Start-VM], VirtualizationException
+    + FullyQualifiedErrorId : OutOfMemory,Microsoft.HyperV.PowerShell.Commands.StartVM
+ 
+
+I0130 16:48:37.931923    7016 fix.go:56] fixHost completed within 4.1511921s
+I0130 16:48:37.931923    7016 start.go:83] releasing machines lock for "minikube", held for 4.1511921s
+W0130 16:48:37.932448    7016 out.go:239] 😿  Failed to start hyperv VM. Running "minikube delete" may fix it: driver start: exit status 1
+I0130 16:48:37.932963    7016 out.go:177] 
+W0130 16:48:37.933480    7016 out.go:239] ❌  Exiting due to GUEST_PROVISION: error provisioning guest: Failed to start host: driver start: exit status 1
+W0130 16:48:37.934000    7016 out.go:239] 
+W0130 16:48:37.935058    7016 out.go:239] [31m╭───────────────────────────────────────────────────────────────────────────────────────────╮[0m
+[31m│[0m                                                                                           [31m│[0m
+[31m│[0m    😿  If the above advice does not help, please let us know:                             [31m│[0m
+[31m│[0m    👉  https://github.com/kubernetes/minikube/issues/new/choose                           [31m│[0m
+[31m│[0m                                                                                           [31m│[0m
+[31m│[0m    Please run `minikube logs --file=logs.txt` and attach logs.txt to the GitHub issue.    [31m│[0m
+[31m│[0m                                                                                           [31m│[0m
+[31m╰───────────────────────────────────────────────────────────────────────────────────────────╯[0m
+I0130 16:48:37.937169    7016 out.go:177] 
+
+* 
