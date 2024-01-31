@@ -35,7 +35,8 @@ nodeapp:
   imagePullSecret: ecr-registry
   deployment:
     name: nodeapp-deployment
-    image: 781104868468.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
+    image: 781104868468.dkr.ecr.us-east-1.amazonaws.com/myapp
+    tag: latest
     replicas: 1
     containerPort: 3000
   service:
