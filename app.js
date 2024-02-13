@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
 
 app.use("/", healthz);
-
 app.use("/v1", assg);
 
 app.get("/metrics", async (req, res) => {
