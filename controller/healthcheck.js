@@ -4,9 +4,26 @@ const {
   standardErrorLogger,
 } = require("../utils/logger");
 const client = require("../utils/statsdutil");
+const { register, promClient } = require("../utils/promclient");
+
+// const promClient = require("prom-client");
+let healthzHits = null;
+if (promClient) {
+  //console.log("Prometheus client is available.");
+  healthzHits = new promClient.Counter({
+    name: "api_healthz_hits_total",
+    help: "Total number of hits to the /healthz endpoint",
+    labelNames: ["method"],
+    registers: [register],
+  });
+} else {
+  console.log("Prometheus client is NOT available.");
+}
 
 async function healthz(req, res) {
   client.increment("API.healthz.GET");
+  healthzHits.inc({ method: req.method });
+
   try {
     res.set("Cache-Control", "no-cache");
     if (req.method !== "GET") {
@@ -18,16 +35,6 @@ async function healthz(req, res) {
       console.log("Request payload not allowed.");
       res.status(400).send();
     } else {
-      // dbConfig.getConnection(function (err) {
-      //     if (err) {
-      //         console.error('MySQL connection failed: ' + err);
-      //         res.status(503).send();
-      //     } else {
-      //         console.log('MySQL connected.');
-      //         res.status(200).send();
-      //     }
-      // });
-
       await sequelize.authenticate();
       res.status(200).send();
       standardOutputLogger.info("MySQL connected successfully.");

@@ -30,7 +30,6 @@ mysqlWorkbench:
     targetPort: 3000
     nodePort: 30000
 
-
 nodeapp:
   imagePullSecret: ecr-registry
   deployment:
@@ -51,3 +50,16 @@ ingress:
       paths:
         - path: "/"
           pathType: Prefix
+
+prometheus:
+  server:
+    service:
+      type: LoadBalancer
+      ports:
+        - name: http
+          port: 80
+          targetPort: 9090
+    extraScrapeConfigs: |
+      - job_name: 'my-nodeapp'
+        static_configs:
+          - targets: ['http://dashboard.com','localhost:3000']
