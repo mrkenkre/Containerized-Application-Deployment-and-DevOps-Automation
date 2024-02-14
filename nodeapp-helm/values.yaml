@@ -63,3 +63,9 @@ prometheus:
       - job_name: 'my-nodeapp'
         static_configs:
           - targets: ['http://dashboard.com','localhost:3000']
+  podSecurityPolicy:
+    enabled: false
+
+grafana:
+  podSecurityPolicy:
+    enabled: false

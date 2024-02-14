@@ -29,11 +29,11 @@ pipeline {
         stage('Tag and Push Image to Amazon ECR') {
             steps {
                 script {
-                    bat "docker tag ${env.DOCKER_IMAGE_TAG} $ECR_REGISTRY/${env.DOCKER_IMAGE_TAG}"
+                    //bat "docker tag ${env.DOCKER_IMAGE_TAG} $ECR_REGISTRY/${env.DOCKER_IMAGE_TAG}"
 
                     bat "docker tag ${env.DOCKER_IMAGE_TAG} $ECR_REGISTRY/${IMAGE_NAME}:latest"
 
-                    bat "docker push $ECR_REGISTRY/${env.DOCKER_IMAGE_TAG}"
+                    //bat "docker push $ECR_REGISTRY/${env.DOCKER_IMAGE_TAG}"
 
                     bat "docker push $ECR_REGISTRY/${IMAGE_NAME}:latest"
                 }
