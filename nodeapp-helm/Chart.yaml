@@ -27,3 +27,9 @@ dependencies:
   - name: prometheus
     version: "14.0.0" # Specify the version of Prometheus chart you wish to use
     repository: "https://prometheus-community.github.io/helm-charts"
+    condition: prometheus.enabled
+  
+  - name: grafana
+    version: "6.17.4"  # The version of Grafana chart you wish to use.
+    repository: "https://grafana.github.io/helm-charts"
+    condition: grafana.enabled  # Optional: You can control this with values.yaml.
