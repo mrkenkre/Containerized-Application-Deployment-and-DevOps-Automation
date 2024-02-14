@@ -1,13 +1,13 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "{{ include "nodeapp.fullname" . }}-test-connection"
-  labels:
-    app: {{ include "nodeapp.fullname" . | quote }}
-spec:
-  containers:
-  - name: wget
-    image: busybox
-    command: ['wget']
-    args: ['{{ include "nodeapp.fullname" . }}:80']
-  restartPolicy: Never
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: "{{ include "nodeapp.fullname" . }}-test-connection"
+#   labels:
+#     app: {{ include "nodeapp.fullname" . | quote }}
+# spec:
+#   containers:
+#   - name: wget
+#     image: busybox
+#     command: ['wget']
+#     args: ['{{ include "nodeapp.fullname" . }}:80']
+#   restartPolicy: Never

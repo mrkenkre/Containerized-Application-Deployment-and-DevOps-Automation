@@ -52,6 +52,10 @@ ingress:
           pathType: Prefix
 
 prometheus:
+  podSecurityPolicy:
+    enabled: false
+  tests:
+    enabled: false
   server:
     service:
       type: LoadBalancer
@@ -63,3 +67,9 @@ prometheus:
       - job_name: 'my-nodeapp'
         static_configs:
           - targets: ['http://dashboard.com','localhost:3000']
+
+grafana:
+  podSecurityPolicy:
+    enabled: false
+  tests:
+    enabled: false
