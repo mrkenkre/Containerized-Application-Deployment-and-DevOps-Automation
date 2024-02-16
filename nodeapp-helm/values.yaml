@@ -66,10 +66,14 @@ prometheus:
     extraScrapeConfigs: |
       - job_name: 'my-nodeapp'
         static_configs:
-          - targets: ['http://dashboard.com','localhost:3000']
+          - targets: ['nodeapp-service.my-namespace.svc.cluster.local:3000']
 
 grafana:
   podSecurityPolicy:
     enabled: false
   tests:
     enabled: false
+  service:
+    type: NodePort
+    ports:
+      - port: 3000
