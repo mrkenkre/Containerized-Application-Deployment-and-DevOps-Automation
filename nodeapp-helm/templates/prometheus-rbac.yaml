@@ -12,7 +12,17 @@ metadata:
 rules:
 - apiGroups: [""]
   resources:
-  - nodes/metrics
+  - nodes
+  - services
+  - endpoints
+  - pods
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - extensions
+  - apps
+  - networking.k8s.io
+  resources:
+  - ingresses
   verbs: ["get", "list", "watch"]
 
 ---

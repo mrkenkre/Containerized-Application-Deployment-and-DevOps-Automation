@@ -57,6 +57,9 @@ prometheus:
   tests:
     enabled: false
   server:
+    serviceAccount:
+      create: true
+      name: prometheus
     service:
       type: LoadBalancer
       ports:
