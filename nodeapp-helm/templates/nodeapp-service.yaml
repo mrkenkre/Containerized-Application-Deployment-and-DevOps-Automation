@@ -3,6 +3,10 @@ kind: Service
 metadata:
   name: {{ .Values.nodeapp.service.name }}
   namespace: {{ .Release.Namespace }}
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/path: '/metrics'
+    prometheus.io/port: '3000'
 spec:
   selector:
     app: nodeapp
