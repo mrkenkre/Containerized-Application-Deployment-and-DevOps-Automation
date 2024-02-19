@@ -69,7 +69,7 @@ prometheus:
     extraScrapeConfigs: |
       - job_name: 'my-nodeapp'
         scrape_interval: 15s
-        scrape_timeout: 1m
+        scrape_timeout: 2m
         static_configs:
           - targets: ['nodeapp-service.my-namespace.svc.cluster.local:3000']
 
