@@ -4,8 +4,8 @@ metadata:
   name: my-ingress
   namespace: my-namespace
   annotations:
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "120"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
 spec:
   rules:
     - host: dashboard.com
