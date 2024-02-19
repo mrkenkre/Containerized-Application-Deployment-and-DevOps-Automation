@@ -5,6 +5,7 @@ const healthz = require("./routes/healthcheck");
 const assg = require("./routes/assg");
 const configureDatabase = require("./config/dbConfig");
 const { standardOutputLogger, standardErrorLogger } = require("./utils/logger");
+const { promClient, register } = require("./utils/promclient");
 
 const app = express();
 standardOutputLogger.info("Initialising Webapp.");
