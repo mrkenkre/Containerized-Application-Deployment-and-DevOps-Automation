@@ -39,6 +39,7 @@ pipeline {
                 }
             }
         }
+
         stage('Deploy to Kubernetes using Helm') {
             steps {
                   withCredentials([
@@ -46,7 +47,7 @@ pipeline {
         ]) {
                 script {
                     bat "helm dependency update $CHART_PATH -n my-namespace"
-                    bat "helm upgrade --install $HELM_RELEASE_NAME $CHART_PATH  --namespace my-namespace"
+                    bat "helm upgrade --install $HELM_RELEASE_NAME $CHART_PATH  --namespace my-namespace --kubeconfig $KUBECONFIG"
                 }
             }
         }
