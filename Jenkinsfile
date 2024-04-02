@@ -44,6 +44,8 @@ pipeline {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS01']]) {
                 script {
                     bat "helm dependency update $CHART_PATH -n my-namespace"
+                    // Check if the namespace exists, and create it if it doesn't
+                    bat "kubectl get ns my-namespace || kubectl create ns my-namespace"
                     bat "helm upgrade --install $HELM_RELEASE_NAME $CHART_PATH --namespace my-namespace"
                 }
             }
