@@ -44,6 +44,7 @@ pipeline {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS01']]) {
                 script {
                     bat "helm dependency update $CHART_PATH -n my-namespace"
+                    
                     bat "helm upgrade --install $HELM_RELEASE_NAME $CHART_PATH --namespace my-namespace"
                 }
             }
