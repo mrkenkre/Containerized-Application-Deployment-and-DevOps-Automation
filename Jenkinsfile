@@ -41,11 +41,13 @@ pipeline {
         }
         stage('Deploy to Kubernetes using Helm') {
             steps {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS01']]) {
                 script {
                     bat "helm dependency update $CHART_PATH -n my-namespace"
                     bat "echo %KUBECONFIG%"
                     bat "helm upgrade --install $HELM_RELEASE_NAME $CHART_PATH  --namespace my-namespace"
                 }
+            }
             }
         }
     }
